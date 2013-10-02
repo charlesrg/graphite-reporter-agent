@@ -61,7 +61,7 @@ public class GraphiteReporterAgent {
         // Don't move this as a constant because if the hostname changes we
         // want to update it
         String hostname = InetAddress.getLocalHost().getHostName();
-        String prefix = "cassandra." + hostname.split("\\.")[0];
+        String prefix =  hostname.split("\\.")[0] + ".cassandra.";
 
         GraphiteReporter.enable(Metrics.defaultRegistry(), REFRESH_PERIOD, REFRESH_PERIOD_UNIT, GRAPHITE_HOST, GRAPHITE_PORT, prefix, CASS_PREDICATE);
     }
